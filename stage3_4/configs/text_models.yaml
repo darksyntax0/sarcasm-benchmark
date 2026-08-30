@@ -1,0 +1,53 @@
+# Stage 3/4 text-model registry -- explicit env/script/params mapping (reproducibility).
+# interpreter_path points directly at each conda env's python. Same model set for Stage 3 & 4;
+# the stage is selected at run time (--stage 3|4), not per model. tier is informational.
+models:
+  qwen2_5_7b:
+    interpreter_path: ${CONDA_ROOT}/envs/qwen2-audio-env/bin/python
+    script: infer/qwen2_5_7b.py
+    hf_id: Qwen/Qwen2.5-7B-Instruct
+    timeout_seconds: 120
+    max_new_tokens: 512
+    tier: 1
+  llama3_1_8b:
+    interpreter_path: ${CONDA_ROOT}/envs/qwen2-audio-env/bin/python
+    script: infer/llama3_1_8b.py
+    hf_id: meta-llama/Llama-3.1-8B-Instruct
+    timeout_seconds: 120
+    max_new_tokens: 512
+    tier: 1
+  mistral_7b_v03:
+    interpreter_path: ${CONDA3_ROOT}/envs/voxtral/bin/python
+    script: infer/mistral_7b_v03.py
+    hf_id: mistralai/Mistral-7B-Instruct-v0.3
+    timeout_seconds: 120
+    max_new_tokens: 512
+    tier: 1
+  phi4_mini:
+    interpreter_path: ${CONDA_ROOT}/envs/phi4_mini_text/bin/python
+    script: infer/phi4_mini.py
+    hf_id: microsoft/Phi-4-mini-instruct
+    timeout_seconds: 120
+    max_new_tokens: 512
+    tier: 1
+  qwen3_8b:
+    interpreter_path: ${CONDA_ROOT}/envs/qwen2-audio-env/bin/python
+    script: infer/qwen3_8b.py
+    hf_id: Qwen/Qwen3-8B
+    timeout_seconds: 150
+    max_new_tokens: 640
+    tier: 1
+  gemma2_9b:
+    interpreter_path: ${CONDA_ROOT}/envs/qwen2-audio-env/bin/python
+    script: infer/gemma2_9b.py
+    hf_id: google/gemma-2-9b-it
+    timeout_seconds: 150
+    max_new_tokens: 512
+    tier: 2
+  phi3_mini:
+    interpreter_path: ${CONDA_ROOT}/envs/phi4-env/bin/python
+    script: infer/phi3_mini.py
+    hf_id: microsoft/Phi-3-mini-4k-instruct
+    timeout_seconds: 120
+    max_new_tokens: 512
+    tier: optional

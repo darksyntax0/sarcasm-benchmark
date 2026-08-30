@@ -1,0 +1,30 @@
+# Stage 2.5 model registry -- TARGET audio + TARGET text + CONTEXT text (no context audio).
+# Every model receives exactly ONE audio clip, so all five audio LLMs run natively and the
+# condition is uniform across models (unlike Stage 2, where Audio-Flamingo-3 required a
+# reduced-modality variant). Token budgets/timeouts mirror Stage 2 for comparability.
+models:
+  qwen2_audio:
+    interpreter_path: ${CONDA_ROOT}/envs/qwen2-audio-env/bin/python
+    script: infer/qwen2_audio.py
+    timeout_seconds: 120
+    max_new_tokens: 768
+  voxtral_mini:
+    interpreter_path: ${CONDA3_ROOT}/envs/voxtral/bin/python
+    script: infer/voxtral_mini.py
+    timeout_seconds: 120
+    max_new_tokens: 768
+  phi4_multimodal:
+    interpreter_path: ${CONDA_ROOT}/envs/phi4-env/bin/python
+    script: infer/phi4_multimodal.py
+    timeout_seconds: 120
+    max_new_tokens: 640
+  audio_reasoner:
+    interpreter_path: ${CONDA_ROOT}/envs/audio-reasoner/bin/python
+    script: infer/audio_reasoner.py
+    timeout_seconds: 240
+    max_new_tokens: 900
+  audio_flamingo3:
+    interpreter_path: ${CONDA_ROOT}/envs/audio-flamingo/bin/python
+    script: infer/audio_flamingo3.py
+    timeout_seconds: 120
+    max_new_tokens: 768

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or benchmark, please cite the accompanying paper."
+title: "Sarcasm Understanding via Multimodal and Contextual Analysis"
+abstract: >-
+  Evaluation framework for a five-condition study of sarcasm understanding,
+  crossing input modality (audio+text vs. text-only) with conversational
+  context, over five audio-language models and seven text-only LLMs.
+authors:
+  - name: "The Authors"   # TODO: replace with author list on de-anonymisation
+license: MIT
+repository-code: "https://github.com/darksyntax0/sarcasm-benchmark"
+keywords:
+  - sarcasm detection
+  - multimodal
+  - audio language models
+  - pragmatics
+  - benchmark

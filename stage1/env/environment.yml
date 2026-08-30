@@ -1,0 +1,16 @@
+name: benchmark-orchestrator
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - pandas
+      - numpy
+      - scikit-learn
+      - sentence-transformers
+      - matplotlib
+      - seaborn
+      - pyyaml
+      - tqdm
+      - psutil

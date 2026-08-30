@@ -1,0 +1,34 @@
+# --- results / outputs (regenerable; not part of the code release) ---
+results/
+outputs/
+*.jsonl
+!**/configs/*.jsonl
+
+# --- data & model weights (hosted on HuggingFace) ---
+data/
+checkpoints/
+*.wav
+*.safetensors
+*.bin
+
+# --- credentials: never commit ---
+.env
+*.pem
+*.key
+**/token
+**/.huggingface/
+hf_token*
+
+# --- python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# --- backups / scratch ---
+*.bak
+*.bak.*
+*.pre-reparse*
+*.log
+.DS_Store

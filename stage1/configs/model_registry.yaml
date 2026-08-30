@@ -1,0 +1,37 @@
+# Fixed registry of the 5 models under benchmark. Interpreter paths point directly at each
+# conda env's python binary -- no `conda activate`/`conda run` at invocation time (see plan
+# notes: direct interpreter path is the reliable pattern for unattended multi-hour runs).
+#
+# timeout_seconds: per-sample SIGALRM wall-clock budget for one inference call.
+# max_new_tokens: passed through to each model script's generation call.
+
+models:
+  audio_reasoner:
+    interpreter_path: ${CONDA_ROOT}/envs/audio-reasoner/bin/python
+    script_path: model_scripts/audio_reasoner_infer.py
+    timeout_seconds: 200
+    max_new_tokens: 900
+
+  qwen2_audio:
+    interpreter_path: ${CONDA_ROOT}/envs/qwen2-audio-env/bin/python
+    script_path: model_scripts/qwen2_audio_infer.py
+    timeout_seconds: 90
+    max_new_tokens: 512
+
+  audio_flamingo3:
+    interpreter_path: ${CONDA_ROOT}/envs/audio-flamingo/bin/python
+    script_path: model_scripts/audio_flamingo3_infer.py
+    timeout_seconds: 90
+    max_new_tokens: 700
+
+  phi4_multimodal:
+    interpreter_path: ${CONDA_ROOT}/envs/phi4-env/bin/python
+    script_path: model_scripts/phi4_infer.py
+    timeout_seconds: 90
+    max_new_tokens: 512
+
+  voxtral:
+    interpreter_path: ${CONDA3_ROOT}/envs/voxtral/bin/python
+    script_path: model_scripts/voxtral_infer.py
+    timeout_seconds: 90
+    max_new_tokens: 512

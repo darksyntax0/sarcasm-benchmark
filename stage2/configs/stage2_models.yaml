@@ -1,0 +1,34 @@
+# Stage 2 model registry -- explicit env/script/param mapping (reproducibility).
+# interpreter_path points directly at each conda env's python (no `conda activate` at runtime).
+# native_two_audio records whether the model truly received BOTH clips (false for AF3 variant).
+models:
+  qwen2_audio:
+    interpreter_path: ${CONDA_ROOT}/envs/qwen2-audio-env/bin/python
+    script: infer/qwen2_audio.py
+    timeout_seconds: 120
+    max_new_tokens: 768
+    native_two_audio: true
+  voxtral_mini:
+    interpreter_path: ${CONDA3_ROOT}/envs/voxtral/bin/python
+    script: infer/voxtral_mini.py
+    timeout_seconds: 120
+    max_new_tokens: 768
+    native_two_audio: true
+  phi4_multimodal:
+    interpreter_path: ${CONDA_ROOT}/envs/phi4-env/bin/python
+    script: infer/phi4_multimodal.py
+    timeout_seconds: 120
+    max_new_tokens: 640
+    native_two_audio: true
+  audio_reasoner:
+    interpreter_path: ${CONDA_ROOT}/envs/audio-reasoner/bin/python
+    script: infer/audio_reasoner.py
+    timeout_seconds: 240
+    max_new_tokens: 900
+    native_two_audio: true
+  audio_flamingo3:
+    interpreter_path: ${CONDA_ROOT}/envs/audio-flamingo/bin/python
+    script: infer/audio_flamingo3.py
+    timeout_seconds: 120
+    max_new_tokens: 768
+    native_two_audio: false   # reduced-modality: target audio + text context only
